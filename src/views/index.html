@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+{% block title %}{{ data.data.title }}{% endblock %}
+{% block style %}
+  {% parent %}
+  <link rel="stylesheet" href="styles/index.css">
+{% endblock %}
+{% block body %}
+  {% for news in data %}
+    {% if loop.first %}<ul>{% endif %}
+      <li>
+        <h3>{{news.title}}</h3>
+        <p>{{news.newsAbstract}}</p>
+      </li>
+    {% if loop.last %}</ul>{% endif %}
+  {% endfor %}
+{% endblock %}
